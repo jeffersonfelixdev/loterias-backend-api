@@ -1,5 +1,5 @@
-# nodejs-backend-api-template
-Node.js Backend API template
+# loterias-backend API
+API de consulta das loterias da Caixa
 
 ## Setup
 * Typescript
