@@ -106,3 +106,5 @@ dist
 
 # Build package
 dist/
+
+ormconfig.json
