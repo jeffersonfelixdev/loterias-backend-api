@@ -31,6 +31,10 @@ class UrlRepository {
 
     return res;
   }
+
+  public async delete(lottery: string): Promise<void> {
+    await this.ormRepository.delete({ lottery });
+  }
 }
 
 export default UrlRepository;
