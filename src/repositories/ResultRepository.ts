@@ -47,7 +47,10 @@ class ResultRepository {
   }
 
   public async findAll(lottery: string): Promise<Result[]> {
-    const results = await this.ormRepository.find({ where: { lottery } });
+    const results = await this.ormRepository.find({
+      where: { lottery },
+      order: { resultNumber: 'DESC' },
+    });
 
     return results;
   }

@@ -4,6 +4,10 @@ import FetchResultService from '../services/FetchResultService';
 
 const routes = Router();
 
+routes.post('/update/', async (request, response) => {
+  return response.json('Hello, World');
+});
+
 routes.get('/:concurso', async (request, response) => {
   const { concurso } = request.params;
 
