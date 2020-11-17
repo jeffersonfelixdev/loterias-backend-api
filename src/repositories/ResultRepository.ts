@@ -46,13 +46,15 @@ class ResultRepository {
     return result;
   }
 
-  public async findAll(lottery: string): Promise<Result[]> {
+  public async findAll(lottery: string): Promise<unknown[]> {
     const results = await this.ormRepository.find({
       where: { lottery },
       order: { resultNumber: 'DESC' },
     });
 
-    return results;
+    const lotteryResults = results.map(l => l.data);
+
+    return lotteryResults;
   }
 }
 
