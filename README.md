@@ -2,8 +2,10 @@
 API de consulta das loterias da Caixa
 
 ## Setup (desenvolvimento)
-* Instalar e executar MongoDB
-* executar dentro da pasta do código o comando `yarn dev:server`
+* Instalar e executar MongoDB;
+* Criar uma cópia de `.env.sample` e renomear para `.env`, editando o arquivo com a porta que deseja utilizar para executar o backend;
+* Criar uma cópia de `ormconfig.json.sample` e renomear para `ormconfig.json`, editando o arquivo com os dados de conexão com sua base MongoDB;
+* Executar dentro da pasta do código o comando `yarn dev:server`.
 
 ## Rotas
 
