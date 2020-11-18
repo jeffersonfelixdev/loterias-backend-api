@@ -36,16 +36,20 @@ routes.get('/jogos/:concurso/:numero', async (request, response) => {
 routes.post('/urls/', async (request, response) => {
   const updateUrlsService = new UpdateUrlsService();
 
-  updateUrlsService.execute('lotofacil');
-  updateUrlsService.execute('megasena');
-  updateUrlsService.execute('quina');
-  updateUrlsService.execute('lotomania');
-  updateUrlsService.execute('timemania');
-  updateUrlsService.execute('duplasena');
-  updateUrlsService.execute('federal');
-  updateUrlsService.execute('loteca');
-  updateUrlsService.execute('diadesorte');
-  updateUrlsService.execute('supersete');
+  const lotteryNames = [
+    'lotofacil',
+    'megasena',
+    'quina',
+    'lotomania',
+    'timemania',
+    'duplasena',
+    'federal',
+    'loteca',
+    'diadesorte',
+    'supersete',
+  ];
+
+  lotteryNames.forEach(name => updateUrlsService.execute(name));
 
   return response.status(201).send();
 });
