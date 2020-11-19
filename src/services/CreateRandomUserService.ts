@@ -33,7 +33,7 @@ class CreateRandomUserService {
 
     await usersRepository.save(user);
 
-    return `curl -X POST http://localhost:${process.env.PORT}/login?userid=${name}&pw=${password}`;
+    return `curl -X POST "http://localhost:${process.env.PORT}/login?userid=${name}&pw=${password}"`;
   }
 }
 
