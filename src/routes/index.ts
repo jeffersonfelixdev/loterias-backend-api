@@ -11,6 +11,7 @@ const routes = Router();
 
 routes.get('/login', async (request, response) => {
   const { userid, pw } = request.query;
+  const { hostname } = request;
   const authenticateUser = new AuthenticateUserService();
 
   const { token } = await authenticateUser.execute({
@@ -18,7 +19,14 @@ routes.get('/login', async (request, response) => {
     password: String(pw),
   });
 
-  return response.json({ token });
+  if (hostname !== 'localhost') {
+    return response.status(403).json({
+      success: false,
+      message: 'This route only be accessed via localhost',
+    });
+  }
+
+  return response.send(`${token}\n`);
 });
 
 routes.use(authenticated);
@@ -35,6 +43,7 @@ routes.get('/jogos/:concurso', async (request, response) => {
 
 routes.get('/jogos/:concurso/:numero', async (request, response) => {
   const { concurso, numero } = request.params;
+  const quiteMode = request.query.q === 'true';
 
   const fetchResultService = new FetchResultService();
 
@@ -43,7 +52,9 @@ routes.get('/jogos/:concurso/:numero', async (request, response) => {
     resultNumber: numero,
   });
 
-  return response.json({ success: true, data: result });
+  return quiteMode
+    ? response.send()
+    : response.json({ success: true, data: result });
 });
 
 routes.post('/urls/', async (request, response) => {

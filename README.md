@@ -20,6 +20,13 @@ node dist/server.js
 
 ## Rotas
 
+### `GET /login/?userid=user&pw=password`
+Cria uma sessão e retorna um TOKEN para utilização das demais rotas. Esta é a
+única rota não autenticada da API, pelo que as demais rotas devem ser autenticadas
+com a utilização do token.
+
+<strong>Esta rota somente funciona em `localhost`.</strong>
+
 ### `GET /jogos/:concurso`
 Obtém todos os jogos de um concurso com nome `:concurso` cadastrados na base de
 dados do MongoDB.
@@ -93,6 +100,10 @@ já está cadastrado na base de dados. Em caso negativo, busca-se na base da Cai
 Econômica Federal. Em encontrando o resultado, o mesmo é exibido e salvo na base
 de dados local. Caso não seja encontrado na base da CEF, uma mensagem de erro é
 exibida.
+
+#### Parâmetro opcional
+Se for informado `?q=true` na query, a execução será em modo silencioso e não
+será gerado nenhum retorno, sendo útil para execução em job/batch.
 
 Exemplo: `GET /jogos/quina/5415`
 
