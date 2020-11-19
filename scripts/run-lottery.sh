@@ -3,7 +3,7 @@
 cd /home/deploy/
 
 # Informe seu TOKEN e PORTA da API
-TOKEN="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWJqZWN0IjoidUF4X2xjMGtvd3Z3MDNoZjJvIiwiaWF0IjoxNjA1Nzk1Mzk2fQ.sWlu3equ7UZqP-Z1GNOIpL7bSU-qJASGrpwu_w1y-Vg"
+TOKEN="COLE_SEU_TOKEN_AQUI"
 PORT=3333
 
 # Requisição do último concurso
