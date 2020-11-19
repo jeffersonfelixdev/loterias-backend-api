@@ -12,11 +12,7 @@ API de consulta das loterias da Caixa
 * Executar dentro da pasta do código o comando `yarn dev:server`.
 
 ### Produção
-* Executar dentra da pasta do código os seguintes comandos:
-```
-yarn build
-node dist/server.js
-```
+* Executar as instruções contidas no [roteiro de implantação em produção](INSTALL.md)
 
 ## Rotas
 
