@@ -9,7 +9,7 @@ import authenticated from '../middlewares/authenticated';
 
 const routes = Router();
 
-routes.get('/login', async (request, response) => {
+routes.post('/login', async (request, response) => {
   const { userid, pw } = request.query;
   const { hostname } = request;
   const authenticateUser = new AuthenticateUserService();

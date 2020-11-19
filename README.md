@@ -20,7 +20,7 @@ node dist/server.js
 
 ## Rotas
 
-### `GET /login/?userid=user&pw=password`
+### `POST /login/?userid=user&pw=password`
 Cria uma sessão e retorna um TOKEN para utilização das demais rotas. Esta é a
 única rota não autenticada da API, pelo que as demais rotas devem ser autenticadas
 com a utilização do token.
