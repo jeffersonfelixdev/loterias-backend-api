@@ -182,4 +182,4 @@ Utilizar Let's Encrypt:
 sudo apt install jq -y
 ```
 
-Executar script `src/run-lottery.sh` (alterar antes os parâmetros do TOKEN e porta)
+Executar script `src/run-lottery.sh nome_da_loteria` (alterar antes os parâmetros do TOKEN e porta do script)
