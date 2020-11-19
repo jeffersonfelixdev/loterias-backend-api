@@ -1,6 +1,7 @@
 import axios from 'axios';
 import ResultRepository from '../repositories/ResultRepository';
 import UrlRepository from '../repositories/UrlRepository';
+import AppError from '../errors/AppError';
 
 interface Request {
   lotteryName: string;
@@ -17,7 +18,7 @@ class FetchResultService {
     const lottery = await urlRepository.find(lotteryName);
 
     if (!lottery) {
-      throw new Error('Tipo de concurso inválido.');
+      throw new AppError('Tipo de concurso inválido.');
     }
 
     const resultRepository = new ResultRepository();
@@ -45,11 +46,13 @@ class FetchResultService {
     );
 
     if (!response.data) {
-      throw new Error('A resposta da requisição não é um objeto JSON válido.');
+      throw new AppError(
+        'A resposta da requisição não é um objeto JSON válido.',
+      );
     }
 
     if (response.data.erro) {
-      throw new Error(response.data.mensagem);
+      throw new AppError(response.data.mensagem);
     }
 
     const findByNumber = await resultRepository.findByNumber({
