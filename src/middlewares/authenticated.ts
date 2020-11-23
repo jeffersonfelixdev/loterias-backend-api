@@ -7,7 +7,8 @@ const authenticated = (
   response: Response,
   next: NextFunction,
 ): void => {
-  const authHeader = request.headers.authorization;
+  const authHeader =
+    request.headers.authorization || `Bearer ${request.query.token}`;
 
   if (!authHeader) {
     throw new AppError('JWT token is missing', 401);
